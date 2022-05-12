@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./style.css" type="text/css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet">
+  
+  <title>Frontend Mentor | Rock, Paper, Scissors</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <div class="whale-section">
+    <header class="header">
+      <div class="header__logo">
+        <img src="./images/logo.svg" alt="Logo" class="logo regular-logo">
+        <img src="./images/logo-bonus.svg" alt="Logo bonus" class="logo__bonus bonus-logo">
+      </div>
+      <div class="header__score">
+        <h5>Score</h5>
+        <p class="score">0</p>
+      </div>
+    </header>
+    <main class="content ">
+        <div class="content__game ">
+            <div class="content__game__regular regular">
+                <div class="regular__block">
+                    <div class="regular__block__icon paper paper__reg__user" onclick="getPostition('paper__reg__user')">
+                        <img src="./images/icon-paper.svg" alt="Icon paper">
+                    </div>
+                    <div class="regular__block__icon paper paper__reg__oponent">
+                        <img src="./images/icon-paper.svg" alt="Icon paper">
+                    </div>
+                    <p class="user-pick">You picked</p>
+                </div>
+                <div class="regular__block">
+                    <div class="regular__block__icon scissors scissors__reg__user" onclick="getPostition('scissors__reg__user')">
+                        <img src="./images/icon-scissors.svg" alt="Icon scissors">
+                    </div>
+                    <div class="regular__block__icon scissors scissors__reg__oponent">
+                        <img src="./images/icon-scissors.svg" alt="Icon scissors">
+                    </div>
+                    <p class="oponent-pick">The house picked</p>
+                </div>
+                <div class="regular__block">
+                    <div class="regular__block__icon rock rock__reg__user" onclick="getPostition('rock__reg__user')">
+                        <img src="./images/icon-rock.svg" alt="Icon rock">
+                    </div>
+                    <div class="regular__block__icon rock rock__reg__oponent">
+                        <img src="./images/icon-rock.svg" alt="Icon rock">
+                    </div>
+                </div>
+            </div>
+            <div class="content__game__bonus bonus">
+                <div class="bonus__block">
+                    <div class="bonus__block__icon scissors scissors__bns__user" onclick="bonusPick('scissors__bns__user')">
+                        <img src="./images/icon-scissors.svg" alt="Icon scissors">
+                    </div>
+                    <div class="bonus__block__icon scissors scissors__bns__oponent">
+                        <img src="./images/icon-scissors.svg" alt="Icon scissors">
+                    </div>
+                </div>
+                <div class="bonus__block">
+                    <div class="bonus__block__icon paper paper__bns__user" onclick="bonusPick('paper__bns__user')">
+                        <img src="./images/icon-paper.svg" alt="Icon paper">
+                    </div>
+                    <div class="bonus__block__icon paper paper__bns__oponent">
+                        <img src="./images/icon-paper.svg" alt="Icon paper">
+                    </div>
+                    <p class="oponent-pick-bns">The house picked</p>
+                </div>
+                <div class="bonus__block">
+                    <div class="bonus__block__icon rock rock__bns__user" onclick="bonusPick('rock__bns__user')">
+                        <img src="./images/icon-rock.svg" alt="Icon rock">
+                    </div>
+                    <div class="bonus__block__icon rock rock__bns__oponent">
+                        <img src="./images/icon-rock.svg" alt="Icon rock">
+                    </div>
+                </div>
+                <div class="bonus__block">
+                    <div class="bonus__block__icon lizard lizard__bns__user" onclick="bonusPick('lizard__bns__user')">
+                        <img src="./images/icon-lizard.svg" alt="Icon lizard">
+                    </div>
+                    <div class="bonus__block__icon lizard lizard__bns__oponent">
+                        <img src="./images/icon-lizard.svg" alt="Icon lizard">
+                    </div>
+                </div>
+                <div class="bonus__block">
+                    <div class="bonus__block__icon spock spock__bns__user" onclick="bonusPick('spock__bns__user')">
+                        <img src="./images/icon-spock.svg" alt="Icon spock">
+                    </div>
+                    <div class="bonus__block__icon spock spock__bns__oponent">
+                        <img src="./images/icon-spock.svg" alt="Icon spock">
+                    </div>
+                    <p class="user-pick-bns">You picked</p>
+                </div>
+            </div>
+        </div>
+        <div class="content__result">
+            <p class="win">You win</p>
+            <p class="lose">Wou lose</p>
+            <p class="draw">Draw</p>
+            <p class="play-btn" onclick="playAgain()">Play again</p>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer__rules">
+            <p onclick="showRulesBlock()" class="rules-btn">Rules</p>
+        </div>
+        <div class="attribution">
+            Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+            Coded by <a href="https://www.frontendmentor.io/profile/valli450">Valli450</a>.
+        </div>
+    </footer>
+    <div class="footer__rules__window">
+        <div class="footer__rules__window__head">
+            <h2>Rules</h2>
+        </div>
+        <div class="footer__rules__window__image">
+            <img src="./images/image-rules.svg" alt="Image rules" class="image-rules-reg">
+            <img src="./images/image-rules-bonus.svg" alt="image bonus rules" class="image-rules-bonus bonus" >
+        </div>
+        <div class="footer__rules__window__close">
+            <img src="./images/icon-close.svg" alt="Icon close" onclick="closeRelesBlock()">
+        </div>
+    </div>
+  </div>
+  <script src="./main.js"></script>
+</body>
